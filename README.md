@@ -24,16 +24,17 @@ It showcases my creative work, narrative design projects, game concepts, and wri
 
 ##  Project Structure
 
-app.py
-Procfile
-requirements.txt
-templates/
-  index.html
-  games.html
-  writing.html
-  about.html
-static/
-  images
+- app.py
+- Procfile
+- requirements.txt
+- README.md
+- templates/
+  - index.html
+  - games.html
+  - writing.html
+  - about.html
+- static/
+  - images
 
 ---
 
