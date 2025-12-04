@@ -1,0 +1,374 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Games</h2>
+
+<style>
+    /* Narrative layout styles */
+    .narrative {
+        max-width: 900px;
+        margin: 1.5rem auto;
+        padding: 1.5rem;
+        background: rgba(169,230,244,0.04);
+        border-radius: 10px;
+        color: #e6fbff;
+        border: 1px solid rgba(169,230,244,0.08);
+        text-align: left;
+        line-height: 1.5;
+    }
+    .narrative h3 {
+        color: #a9e6f4;
+        margin-top: 0;
+        margin-bottom: 0.25rem;
+    }
+    .narrative .meta {
+        display: flex;
+        gap: 1.25rem;
+        flex-wrap: wrap;
+        font-size: 0.95rem;
+        color: #cceff7;
+        margin-bottom: 1rem;
+    }
+    .narrative dl { margin: 0 0 1rem 0; }
+    .narrative dt { font-weight: bold; color: #dff9ff; }
+    .narrative dd { margin: 0 0 0.5rem 0; color: #eafcff; }
+    .narrative h4 {
+        color: #dff9ff;
+        margin-bottom: 0.25rem;
+    }
+    .narrative .section { margin-bottom: 1rem; }
+    .narrative pre, .narrative code { background: rgba(0,0,0,0.15); padding: 0.25rem 0.5rem; border-radius: 4px; }
+    .narrative ol, .narrative ul { margin-left: 1.1rem; }
+    .narrative .logline { font-style: italic; color: #dff9ff; }
+    
+    /* Table of Contents Styles */
+    .toc {
+        max-width: 900px;
+        margin: 1.5rem auto;
+        padding: 1rem;
+        background: rgba(169,230,244,0.02);
+        border-left: 4px solid #a9e6f4;
+        border-radius: 4px;
+        color: #e6fbff;
+    }
+    .toc h3 {
+        margin: 0 0 1rem 0;
+        color: #00f0ff;
+        font-size: 1.5rem;
+    }
+    .toc ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .toc li {
+        margin: 0.5rem 0;
+    }
+    .toc a {
+        color: #a9e6f4;
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+    .toc a:hover {
+        color: rgb(224, 71, 117);
+        text-shadow: 0 0 10px #a9e6f4;
+    }
+    
+    /* Large section styles */
+    .game-section {
+        max-width: 900px;
+        margin: 2rem auto;
+    }
+    .game-section h2 {
+        color: #a9e6f4;
+        border-bottom: 2px solid #a9e6f4;
+        padding-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+    .game-subsection {
+        margin-bottom: 2rem;
+    }
+    .game-subsection h3 {
+        color: #dff9ff;
+        margin-bottom: 1rem;
+    }
+    .placeholder {
+        background: rgba(169,230,244,0.08);
+        border: 2px dashed rgba(169,230,244,0.3);
+        padding: 2rem;
+        border-radius: 8px;
+        text-align: center;
+        color: #a9e6f4;
+        font-style: italic;
+    }
+    
+    /* Banner image styles */
+    .game-banner {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        object-position: center;
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Game Engine gallery strip */
+    .engine-gallery {
+        display: flex;
+        gap: 0.75rem;
+        overflow-x: auto;
+        padding-bottom: 0.25rem;
+        scrollbar-width: thin;
+    }
+    .engine-gallery img {
+        height: 140px;
+        width: auto;
+        border-radius: 6px;
+        border: 1px solid rgba(169,230,244,0.2);
+        background: rgba(169,230,244,0.06);
+        flex: 0 0 auto;
+    }
+    .engine-gallery video {
+        height: 140px;
+        width: auto;
+        border-radius: 6px;
+        border: 1px solid rgba(169,230,244,0.2);
+        background: rgba(169,230,244,0.06);
+        flex: 0 0 auto;
+    }
+    .engine-gallery img:hover {
+        border-color: #a9e6f4;
+        box-shadow: 0 0 12px rgba(169,230,244,0.35);
+    }
+    .engine-gallery video:hover {
+        border-color: #a9e6f4;
+        box-shadow: 0 0 12px rgba(169,230,244,0.35);
+    }
+</style>
+
+    <!-- Table of Contents -->
+    <nav class="toc">
+        <h3>Table of Contents</h3>
+        <ul>
+            <li><a href="#armada-section">ARMADA DOWN</a>
+                <ul style="margin-top: 0.3rem;
+                font-size: 0.85rem;">
+                    <li><a href="#game-details">Game Details</a></li>
+                    <li><a href="#level-design">Level Design</a></li>
+                    <li><a href="#narrative-design">Narrative Design</a></li>
+                    <li><a href="#game-engine">Game Engine</a></li>
+                </ul>
+            </li>
+            <!--
+            <li><a href="#other-programs-section">Other Programs</a>
+                <ul style="margin-top: 0.3rem;
+                font-size: 0.85rem;">
+                    <li><a href="#multiplayer-web-game">Multiplayer Web Game</a></li>
+                    <li><a href="#sudoku-solver">Sudoku Solver</a></li>
+                </ul>
+            </li>
+                -->
+        </ul>
+    </nav>
+
+
+<!-- ARMADA DOWN SECTION -->
+<section class="game-section" id="armada-section">
+    <h2>ARMADA DOWN</h2>
+    <img src="{{ url_for('static', filename='images/ADconcept1.png') }}" alt="ARMADA DOWN Concept Art" class="game-banner">
+
+    <!-- Game Details Subsection -->
+    <div class="game-subsection" id="game-details">
+        <h3>Game Details</h3>
+        <article class="narrative">
+            <div class="meta">
+                <div><strong>Author:</strong> Jake Pinkerton</div>
+                <div><strong>Date:</strong> June - November 2025</div>
+                <div><strong>Target Platform:</strong> PC</div>
+                <div><strong>Genre:</strong> Bullet Heaven / Reverse Bullet Hell</div>
+            </div>
+            <div class="section">
+                <h4>Core Theme</h4>
+                <p>Survival, Loss, and Vengeance</p>
+            </div>
+            <div class="section">
+                <h4>Logline</h4>
+                <p class="logline">The sole survivor of an annihilated fleet must battle through a gauntlet of alien forces on a desperate journey home, upgrading their ship to turn a desperate flight for survival into a vengeful crusade.</p>
+            </div>
+        </article>
+    </div>
+
+        <!-- Level Design Subsection -->
+    <div class="game-subsection" id="level-design">
+        <h3>Level Design</h3>
+        <article class="narrative">
+            <div class="section">
+                <h4>Level Design Philosophy</h4>
+                <p>Levels in ARMADA DOWN are not just combat arenas; they are the primary vehicle for environmental storytelling and emotional pacing. Each level reinforces the narrative arc:</p>
+                <p><strong>Helplessness → Survival → Empowerment → Vengeance.</strong></p>
+                <p>The player's power curve is mirrored by escalating enemy complexity and evolving background visuals. Every level is a 10-minute survival stage, culminating in a "Stage Clear." Progression is linear, with player power (weapons, upgrades) persisting between levels.</p>
+            </div>
+
+            <div class="section">
+                <h4>Universal Mechanics & Rules</h4>
+                <p><strong>Core Loop:</strong> Survive for 10 minutes against endless waves of enemies. Defeated enemies drop Experience Gems. Collecting enough gems levels the player up, granting a choice of new weapons or upgrades.</p>
+                <p><strong>Level Layout:</strong> All levels use an unbounded, open space. The "level" is defined by its background art and enemy composition. Players can move freely in any direction.</p>
+                <p><strong>Progression Gate:</strong> Progress to the next level is automatic upon surviving the 10-minute timer.</p>
+            </div>
+
+            <div class="section">
+                <h4>Level-by-Level Breakdown</h4>
+
+                <h5>LEVEL 1: THE DEBRIS FIELD</h5>
+                <p><strong>Narrative Context & Visuals:</strong> Immediately following the intro. The background is a starfield littered with the shattered hulls of Terran alliance ships. The colossal, dormant silhouette of the Alien Dreadnought is visible in the far distance. Palette: deep blues, greys, and black.</p>
+                <p><strong>Player Starting Power:</strong> Basic Pulse Cannon (single, forward-firing projectile).</p>
+                <p><strong>Enemy Roster & Encounter Design:</strong></p>
+                <ul>
+                    <li><strong>Scout UFO (90% of spawns):</strong> Small, light-gray saucer. Flies directly toward the player. Very low health. Role: teach core loop.</li>
+                    <li><strong>Lancer UFO (10% of spawns):</strong> Slightly larger, red-tipped ship. Moves erratically on screen edge and fires a single slow projectile. Role: introduces projectile-dodging.</li>
+                </ul>
+                <p><strong>Pacing:</strong> The first 2 minutes are sparse; density increases toward a final 2-minute swarm.</p>
+
+                <h5>LEVEL 2: THE OUTER RIM</h5>
+                <p><strong>Narrative Context & Visuals:</strong> Background shifts to a deep nebula of purple and magenta gas clouds. Wreckage is gone; the player is isolated.</p>
+                <p><strong>Player Starting Power:</strong> Carries over upgrades from Level 1.</p>
+                <p><strong>New Enemy - Miner Ship:</strong> Blocky, slow-moving brown ship that crosses the screen and drops a large cluster of Experience Gems when destroyed. Encourages target prioritization and aggressive play for a power spike.</p>
+
+                <h5>LEVEL 3: NEBULA PASSAGE</h5>
+                <p><strong>Narrative Context & Visuals:</strong> Vibrant nebula with green/blue energy and electrical storms. </p>
+                <p><strong>New Mechanic - Environmental Hazard:</strong> Ionized Gas Clouds that slow the player by 50% for 2 seconds when passed through.</p>
+                <p><strong>New Enemy - Interceptor:</strong> Sleek, blue ship that flies quickly in formation and attempts to herd the player into hazards; low health, high speed.</p>
+
+                <h5>LEVEL 4: TERRAN BORDER</h5>
+                <p><strong>Narrative Context & Visuals:</strong> Edge of Terran space, now invaded. Background shows broken stations and planetary defenses. Colors mix Terran whites/blues with alien purple.</p>
+                <p><strong>New Enemy - Corrupted Drone:</strong> A Terran drone overlaid with alien circuitry; fires a rapid three-shot spread. Medium health. Role: raises bullet density and emotional stakes.</p>
+
+                <h5>FINAL LEVEL: THE BEHEMOTH'S MAW</h5>
+                <p><strong>Narrative Context & Visuals:</strong> Takes place in front of the Dreadnought. The boss occupies the top third of the screen; the background is a dark, pulsating hive.</p>
+                <p><strong>Boss Mechanics:</strong> The Dreadnought exposes 3–4 sequential glowing weak points (cores). Each active core triggers telegraphed attacks such as a Sweep Laser and Plasma Barrage. Continuous enemy spawns from hangar bays.</p>
+                <p><strong>Pacing:</strong> A grueling 10-minute endurance test culminating in a final minute "last stand" that pushes the player's build to its limit.</p>
+            </div>
+        </article>
+    </div>
+    
+    <!-- Narrative Design Subsection -->
+    <div class="game-subsection" id="narrative-design">
+        <h3>Narrative Design</h3>
+        <article class="narrative">
+            <div class="section">
+                <h4>High-Concept & Player Experience</h4>
+                <p>ARMADA DOWN leverages the addictive "just one more run" loop of the bullet heaven genre, but frames it with a compelling, minimalist narrative told entirely through in-game visuals and UI. The player's journey evolves emotionally alongside their ship's power progression, moving from panic, to isolation, to determined vengeance. The story is delivered through scripted in-engine scenes with thought bubbles and chat panels, creating a memorable, character-driven experience without the need for high-level animation.</p>
+            </div>
+
+            <div class="section">
+                <h4>Core Narrative & In-Engine Cinematic Outline</h4>
+                <p>The story is told in three distinct phases, reflected in the gameplay and environmental design.</p>
+
+                <h5>PHASE 1: THE FALL — Intro Scene: "Annihilation"</h5>
+                <ul>
+                    <li><strong>Setting:</strong> The game's starfield backdrop. The player's ship and several identical, smaller ally sprites are stationary on screen.</li>
+                    <li><strong>Action:</strong> A massive Alien Dreadnought moves in from the top. A scripted energy blast manifests; ally ships vanish in a flash. The player's ship is hit and spins toward the bottom (non-player animation).</li>
+                    <li><strong>Narrative Delivery:</strong> HUD flickers and glitches. A thought bubble appears: <em>...fleet is gone... systems failing...</em></li>
+                    <li><strong>Transition to Gameplay:</strong> Thought bubble fades, HUD reboots, enemies appear and Level 1: Debris Field survival timer begins.</li>
+                </ul>
+
+                <h5>PHASE 2: THE SILENCE — Transition Scene: "Alone"</h5>
+                <ul>
+                    <li><strong>Level 1 Completion:</strong> The survival timer ends. <em>WAVE CLEAR</em> appears.</li>
+                    <li><strong>Setting:</strong> Post-level, player's ship idle and alone.</li>
+                    <li><strong>Action:</strong> Ship moves to center (scripted). A comms-styled UI panel scans channels with failed responses (e.g., <em>FLEETCOM: SIGNAL NOT FOUND</em>).</li>
+                    <li><strong>Narrative Delivery:</strong> Final thought bubble: <em>...I'm the only one left. I must return home.</em> A HOME nav appears; the ship's engine glows and it flies off-screen to Level 2.</li>
+                </ul>
+
+                <h5>PHASE 3: THE GAUNTLET & VENGEANCE</h5>
+                <ul>
+                    <li><strong>Mid-Game:</strong> After upgrades, the ship turns away from home plaent to face its origin, HOME waypoint is crossed out and a new target reticle points back toward the invasion zone.</li>
+                    <li><strong>Narrative Delivery:</strong> Thought bubble: <em>...No. This ends now.</em> The ship accelerates back toward the alien zone and the next, harder level loads.</li>
+                </ul>
+
+                <h5>CLIMAX & RESOLUTION — Final Level: The Behemoth's Maw</h5>
+                <ul>
+                    <li><strong>Objective:</strong> Survive and destroy the Alien Dreadnought (stage-sized boss with glowing weak points).</li>
+                    <li><strong>Outro Scene — "Vanguard":</strong> The Dreadnought explodes; the player's battered ship holds position. A comms UI receives: <em>...is anyone out there?</em> Final thought bubble: <em>This is Vanguard 1-7. I'm coming home.</em></li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h4>Gameplay Systems & Narrative Integration</h4>
+                <ul>
+                    <li><strong>Weapon Unlocks:</strong> Tied to narrative progression to reinforce emotional beats.
+                        <ul>
+                            <li>Pulse Cannon — default starting weapon.</li>
+                            <li>Salvaged Beam Laser — unlocked after Level 1, found in wreckage.</li>
+                            <li>Vengeance Missile System — unlocked before final levels, signaling offensive shift.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Meta-Progression:</strong> Unlockable ships drawn from lost armada (e.g., "Warden-Class Frigate") with lore tooltips.</li>
+                    <li><strong>Environmental Storytelling:</strong> Level backgrounds change to reflect the journey: Armada Debris → Uncharted Space → Alien Nebulae → War-torn Terran Border → The Dreadnought's Lair.</li>
+                </ul>
+            </div>
+        </article>
+    </div>
+
+    <!-- Game Engine Subsection -->
+    <div class="game-subsection" id="game-engine">
+        <h3>Game Engine</h3>
+        <article class="narrative">
+            <div class="section">
+                <h4>Overview</h4>
+                <p>I began this project having no experience with game engine software, but after some research I found Godot to be best suited for my vision. My progress was slow at first, which was expected, but once I got the lay of the land and studied the basics of GDscript (Godot’s scripting language), things started to get going. User movement was my first task, followed by enemy spawning and collision detection. I have experience with these mechanics from school projects so the conversion to GDscript wasn’t too difficult. Next was weapons, which I decided to keep simple for now, basing its behavior on the beam laser mentioned in my Narrative Design document. Now with a way to eliminate enemies, the game started to take its shape. <br>
+                <br>
+                This progress can be seen in my Level 1 Vertical Slice video down below.
+</p>
+            </div>
+            <div class="section">
+                <h4>Completed Mechanics as of Nov. 2025</h4>
+                <ul>
+                    <li>User Movement</li>
+                    <li>Enemy Spawning (increases as level progresses)</li>
+                    <li>Collision Detection</li>
+                    <li>User and Enemy Health</li>
+                    <li>Enemy Behavior</li>
+                    <li>Sound Effects</li>
+                </ul>
+                <p><strong>Github:</strong> <a href="https://github.com/jpink8" target="_blank" style="color: #a9e6f4; text-decoration: none;">https://github.com/jpink8</a></p>
+            </div>
+            <div class="section">
+                <h4>Gallery</h4>
+                <div class="engine-gallery">
+                    <img loading="lazy" src="{{ url_for('static', filename='images/ADscreenshot1.png') }}" alt="ARMADA DOWN screenshot 1">
+                    <video controls playsinline preload="metadata" title="ARMADA DOWN short gameplay clip">
+                        <source src="{{ url_for('static', filename='images/ADscreenrecord1.mp4') }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <img loading="lazy" src="{{ url_for('static', filename='images/ADscreenshot2.png') }}" alt="ARMADA DOWN screenshot 2">
+                </div>
+            </div>
+        </article>
+    </div>
+</section>
+
+<!--
+<section class="game-section" id="other-programs-section">
+    <h2>Other Programs</h2>
+
+    <div class="game-subsection" id="multiplayer-web-game">
+        <h3>Multiplayer Web Game</h3>
+        <div class="placeholder">
+        </div>
+    </div>
+
+    <div class="game-subsection" id="sudoku-solver">
+        <h3>Sudoku Solver</h3>
+        <div class="placeholder">
+        </div>
+    </div>
+</section>
+-->
+
+<!-- Coming Soon Section -->
+<div style="max-width: 600px; margin: 3rem auto; text-align: center;">
+    <img src="{{ url_for('static', filename='images/ADconcept2.png') }}" alt="ARMADA DOWN concept art 2" style="width: 100%; max-width: 700px; border-radius: 10px; border: 1px solid rgba(169,230,244,0.15); box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+    <p style="margin-top: 1.5rem; color: #a9e6f4; font-size: 1.1rem; font-style: italic;">More updates to come...</p>
+</div>
+ 
+
+{% endblock %}

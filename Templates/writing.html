@@ -1,0 +1,309 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Writing</h2>
+<p class="call-to-action" style="font-size: 1rem;">Below are some of my recent writing projects. Creative writing has been a passion of mine for as long as I can remember and I've taken many courses on the subject. 
+    I'm most interested in elements of dystopian sci-fi/fantasy because I love the art of world bulding and find this genre to be full of endless possibilities. <br> <br>
+    I hope you find the stories on display to show the kind of imagination and skill you'd be looking for in a creative team member. Enjoy!</p>
+
+<style>
+    .card-container {
+        display: flex;
+        gap: 3.25rem;
+        flex-direction: column;
+        align-items: stretch;
+        margin: 3rem 0;
+    }
+    .content-card {
+        width: 220px;
+        height: 120px;
+        background: #a9e6f4;
+        border-radius: 16px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: box-shadow 0.2s;
+        text-align: center;
+        position: relative;
+        color:black;
+    }
+    .content-card:hover {
+        box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+        background: #eaeaea;
+    }
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0,0,0,0.5);
+        align-items: center;
+        justify-content: center;
+    }
+    .modal-content {
+        background:  #a9e6f4;
+        padding: 2rem;
+        border-radius: 12px;
+        width: 80vw;
+        height: 80vh;
+        max-width: 900px;
+        max-height: 90vh;
+        box-shadow: 0 2px 16px rgba(0,0,0,0.2);
+        position: relative;
+        color: black;
+        text-align: left;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Writing page two-column layout */
+    .writing-main {
+        max-width: 1000px;
+        margin: 1.5rem auto;
+        display: flex;
+        gap: 1.8rem;
+        align-items: flex-start;
+    }
+    .card-column {
+        width: 260px;
+        flex: 0 0 260px;
+    }
+    .synopsis {
+        flex: 1 1 auto;
+        color: #e6fbff;
+        margin-top: 3.55em; /* nudge synopsis down slightly to better align with modals */
+    }
+    .synopsis-item {
+        background: rgba(169,230,244,0.03);
+        border-left: 2px dotted #a9e6f4;
+        padding: 1rem;
+        margin-bottom: 4.5rem;
+        border-radius: 6px;
+        color: #dff9ff;
+    }
+    .call-to-action {
+        max-width: 1000px;
+        margin: 1.25rem auto;
+        padding: 1rem 1.25rem;
+        background: rgba(169,230,244,0.02);
+        border-left: 4px solid #a9e6f4;
+        border-radius: 4px;
+        color: #e6fbff;
+    }
+    .close-btn {
+        position: absolute;
+        top: 12px;
+        right: 16px;
+        font-size: 1.5rem;
+        color: #888;
+        cursor: pointer;
+        border: none;
+        background: none;
+    }
+</style>
+
+<div class="writing-main">
+    <div class="card-column">
+        <div class="card-container">
+            <div class="content-card" onclick="openModal(0)">Mutilation</div>
+            <div class="content-card" onclick="openModal(1)">High to Death</div>
+            <div class="content-card" onclick="openModal(2)">Ode to Drowning</div>
+        </div>
+    </div>
+
+    <div class="synopsis">
+        <div class="synopsis-item" id="syn0">
+            <p>An intense POV of a fighter who confronts the animal within during a futuristic martial arts bout.<br> Themes: violence, bionic enhancements, and survival</p>
+        </div>
+        <div class="synopsis-item" id="syn1">
+            <p>Set in a dystopian future where the narrator is faced with imprisonment and fatal trials <br> Themes: pharmacological control, imprisonment, and death.</p>
+        </div>
+        <div class="synopsis-item" id="syn2">
+            <p>A lyrical exploration of a wandering mind sinking through layers of consciousness only to surface again. <br> Themes: abstraction, escapism, and romanticism.</p>
+        </div>
+    </div>
+</div>
+
+<div id="modal0" class="modal">
+    <div class="modal-content">
+        <button class="close-btn" onclick="closeModal(0)">&times;</button>
+        <h3 style="text-align:center;">Mutilation</h3>
+        <p><em>Fighter. Champion. Monster. Which am I? Could I be all at once?</em></p>
+
+        <p>My song comes first. The walk from my locker room to the stage takes 54 seconds. By the time my entrance ends, and my team leaves me to my on-mat ritual, the Zortec, artificial adrenaline, has already made one with my bloodstream. It takes two long breaths to calm the jitters. I clap once, then once more, and lay my knees to the mat.</p>
+
+        <p><em>Pars magna bonitatis est velle fieri bonum*. Amen.</em></p>
+
+        <p>Treyton Phillips is halfway to the stage when I raise back up to the roar of a hundred thousand. 40 seconds later, it’s just myself, my opponent, and a man whose job is to prevent a public death. We back to our corners awaiting the ref’s summons. The beast opposite of me bounces up and down, his eyes never leaving mine. His team is clearly proud of their genetic modifications. By the tone of his chest and fluidity of his movements, I’m assuming the use of muscle mutations, a new mod on the market with momentum to become the norm. I hate it, but who am I to judge, my body is no longer my own. We’re motioned forward, the ref spitting unknown words in our directions while Treyton and I touch wrapped knuckles. There is no hate between us, but instead a cold-hearted obligation. Backing to my corner, I embrace my last moment of innocence – then a bell rings – and the war begins.</p>
+
+        <p><em>Stay strong, move smart, conquer. Forgive me when it’s over.</em></p>
+
+        <p>I expect him to charge, he doesn’t. Instead, we do our dance in unison, closing in on contact through sidesteps and the inertia to kill. I am no longer me, I can’t let myself be. I’m a gladiator with stone for bones and a bounty on my head. We trade jabs, then kicks. Our strikes snap in and out of existence, like the pop of a gun. One moment, we’re five feet apart, then with a breeze there’s liquid life spilling from the corner of Treyton’s brow. First blood. He answers with a flurry of lethal hooks hidden by jabs. None of them land cleanly but the statement is clear, he could end me with one wrong step. Round one stretches on. The cut above Treyton’s eye is still the only sign of damage taken from either of us when the sound announcing 10 seconds left brings us back to reality. He goes for a takedown, I slip it. I heave a kick, he plants his foot down to try and alleviate the damage, but the crack was loud and clear. When the round ends, I watch as he walks confidently back to his corner. Most would be impressed by Treyton’s ability to walk unphased after taking a kick like that, but I can see the truth in the rigidity of his spine and the millisecond hesitation before stepping. He’s hurt.
+My corner tells me what I already know, and in one minute my team is back outside the cage. Round two. </p>
+
+
+        <p>I close the distance between us without a second thought, like a shark drawn to blood. There’s five seconds of silence on the mat, then he feints a hook and lands an uppercut that leaves me buckled. It’s always an uppercut. I move back to the wall of the cage, my retreat being met step by step with his push forward. His fist meets my ribs, then my jaw, then my ribs. I wheeze out the pain. Continuing to punish me, Treyton leaps with a knee into the bridge of my nose. I know through the taste of blood and lack of oxygen, my nose is shattered. I do all I can to break free from the wall he’s pinned me to, flailing an elbow that lands on his ear, cartilage popping under the force of a jackhammer. We meet again at center stage, neither of us in the mood for a breather. I resist choking on the blood steadily flowing over my upper lip and on to my tongue. I jab to his face, meeting his block, then jab again and hit the bullseye. His cut from round one opens to a gash. Blood consumes his left eye. This is when everything stops, and all I see in front of me is an animal in pain. The crowd is a wall of static, their screams creating an ambiance for violence. They urge us on. “Finish him,” they plead, “More.” I feel the capability of destruction coursing through me like venom, threatening to overflow. Treyton’s eye meets mine, and we know there’s no going back now.</p>
+
+        <p><em>Audentes fortuna iuvat.**</em></p>
+
+        <p>We step forward in unison, two humans designed to kill, and strike. I no longer feel where he hits me, I simply keep going. I punish his midsection, then lay a haymaker on his jaw. He doesn’t drop, only stumbles, and I press him through the screams of the broken rib I must’ve just acquired. My temple is beaten in when I miss a hook, my brain bouncing against my skull. I manage to keep my footing and sweep a kick. Crack. His shin gives. He steps back on his good leg, swinging for air, then steps back again to find his leg in two. Collapsing in on itself, his tibia splinters and pierces through the skin. I don’t hear the bell ring, or the shouts of the ref announcing the end of the fight. I don’t celebrate when my team rushes to my side, lifting my arms. I just watch, as Treyton Phillips loses consciousness at the sight of his mangled body. I remind myself to take a deep breath through my mouth, but only taste blood and bone. I know what I am. I can no longer deny it. There is no winning, even with a belt hung on my shoulder, and the masses chanting my name. With one more look at Treyton, being lifted to a stretcher, I’m sure of it. We’re monsters, and we will always lose. I exit the cage before the belt ceremony.</p>
+
+        <p><em>Forgive me.</em></p>
+    <br>
+    <hr style="border: none; border-top: 2px solid #333; width: 100%; margin: 0.5em 0;">
+    <br>
+    <p style="font-size: 0.9em;text-align: center;">*Much of goodness consists in wanting to be good</p>
+    <p style="font-size: 0.9em;text-align: center;">** Fortune favors the bold</p>
+    </div>
+</div>
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <button class="close-btn" onclick="closeModal(1)">&times;</button>
+        <h3 style="text-align:center;">High to Death</h3>
+        <h3 style="text-align:center; font-size: 0.8em;">EXCERPT: Chapters 4 and 5</h3>
+        <h4 style="text-align:center;">4</h4>
+        <p>My first sight of Hell was the bottom of a bunk. My second sight, a sharp-nosed face locking eyes with my own, tapping thick nails on the bunk frame. He didn’t stop once I began to stir, only widened his hawkish eyes.
+        The room around me pulled at my gaze. More bunks lined a featureless room, a figure standing in the middle of it all. I stretched a leg off my mattress, the same kind that was in my cell, then was knocked on the forehead before my second leg could follow.
+        “No, no. Don’t.” I looked up at the voice, “Get back. Stay.” His hand continued to swat at me until I retreated back to the far side of my bed, telling him off in every way I knew how. His head followed, now completely upside down as he leaned over the railing. “Watch,” he said, then disappeared above, leaving the room in front of me.</p>
+
+        <p>My eyes couldn’t adjust to the light, a dull orange glow that seemed to be coming from everywhere and nowhere all at once. I could make out the bunks, covering each of the four walls, as well as the unmoving figure still in the center of the room, but details wouldn’t come. The light would grow dim, then pulse back to life, leaving my focus to continue shifting. After a long moment, details finally emerged from the scene. Others in black, occupying every bunk. The floor, pulsing at the pace of the light, no doubt the source of it. A figure with shoulder length hair, turning their head to survey the room, a remote in one hand.</p>
+
+        <p>Movement to my right. A girl in black stepped carefully down the side of her bunk, the shape in the lower compartment most definitely still unconscious. She didn’t hesitate once she reached the floor, and took two steps out from the bunk. Only two. Then she collapsed, just as quickly as the small man in the courtyard. Knees bending under the weight of a lifeless body, crumbling to the floor in the space of one second. Her head didn’t crack, to my relief, but instead made a hollow thump as it hit the pulsing floor. Two Officials, identical to those that guarded my cell, entered the floor from somewhere outside my vision, grabbing and lifting opposite ends of the girl. Like a stubborn sack of potatoes, the girl’s body was tossed back onto her bunk. As the Officials made their way back to wherever they entered, the head popped down into view. He didn’t say anything at all, just gave me a look as if to say, “Aren’t ya glad that wasn’t you,” then retreated once again.</p>
+
+        <p>I waited criss-cross on my bunk for an unknown amount of time. Feelings from my cell came and went, chased out by the confusion of what surrounded me. The floor pulsed slower now, spending more time on the brighter cycle, allowing the fleeting details of the room to solidify, until the room rested at the peak of the cycle.</p>
+
+        <p>“I’ll have your attention,” the lady in the center began,” unless you’d rather I pry it from you.” She thumbed the remote in her hand idly. The girl in black who several moments ago was tossed back on to her bunk, was now conscious again, widening her frightened eyes at the woman, not to push her patience. She wasn’t the only one, everyone now sat forward in their bunks.
+        “Now that your levels are set and motives shaped, you’ll be entering the final phase of your incarceration. We ask that you welcome this change with determination of equal value to your will to live. If you don’t, your place in this process will be terminated.”</p>
+
+        <p>The woman turned as she spoke, allowing all to feel the strength of her nerve. Her words sat uncomfortably in my thoughts. All along I had wondered what would become of me, expecting a short walk to a firing squad, or a simple needle to inject me with death, but this, I don’t even know what this is. I hated her from the moment she started speaking, her tone dismissing her audience as if we were naughty children. I met her gaze as she finished. “You’ll be escorted to Trial One when the light cuts, until then, cleanse the canvas of your mind and determine your value.” With that, she left, ignoring the questions that followed her from all directions. The floor began its pulsing once again, this time in reverse, growing dim with each beat.</p>
+
+        <h4 style="text-align:center;">5</h4>
+        <p>We were led to a large room the size of a hangar, the lower walls made of rough black crete, the upper half all of glass stretching to the fullest height of the ceiling. The glass was opaque but still lent a view to what moved behind it. People in blue cloaks lined the viewports, some scribbling on devices, others clustered and pointing. The scene’s blunt one-sidedness equaled that of the lady with the remote, filling me with a primal urge to escape the predators circling. When the Officials that escorted us left from the way we came, one pane of glass dropped its tint, revealing a man of great stature, accompanied by the lady and an old blue-cloak man. The large man stepped forward.</p>
+
+        <p>“At this time, find a red circle and have a seat, we have much to discuss before the trial can begin.” His voice boomed from all around, echoing as we scrambled to find the circles he spoke of. Conscious of every awkward bend of my limbs, while determining the position in which to sit, I landed on a simple criss-cross of the legs, only adding to the naughty children analogy. Most others chose the same, while some sprawled out like they were ready for a night’s sleep. The red dots formed a semi-circle, its open end facing the window where the man towered over us.</p>
+
+        <p>“My name is ShanTai, I will be your Trial Master and figurehead of your Sect. All orders from me are to be followed above all authority, failure to do so leading to consequences of unmatched magnitude. Now to the task at hand,” he continued his speech with both hands held firmly to the fold of his military coat.</p>
+
+        <p>“You will be subjected to performance enhancing drugs of novel  composition. These serums will affect varying aspects of yourself: body and mind. We’ve spent the past five cycles determining how your body reacts to a controlled level of material intake, as well as how your brain operates when isolated to its rawest form. With this information, you’ll be dosed and observed accordingly. The knowledge we wish to seek  will write this age into a new chapter, one of advancements that will change how the world is run.
+        I hope you all are coming to understand the severity and importance of the program you’re now taking part in. With that in mind, I’ll hand you over to Dr. Hale, who’ll explain the procedure.” The command in his voice trumped that of the lady, and struck a cord of fear in me that I hadn’t felt even during the worst nights of my stint in the cell. Dr. Hale, the Blue Coat stepped forward.</p>
+
+        <p>He cleared his throat, flinching at the volume of his own voice as it filled the hangar, and let out a muffled whimper. After a few twitchy efforts to push his glasses farther up his nose, he finally began to speak. His tone was less harsh than the others, but not to be confused with apologetic, even the timid scientist didn’t dare show us that level of humanity. My skin itched as my heart threatened to pound a hole in my chest, taking my attention away from the doctor's self-introduction.</p>
+
+        <p>“...but nevertheless, this first serum was created with much pride.,” he paused to flash a small smile, as if he expected a pat on the back for drugging us. “It targets your Omega receptors, neurons responsible for many functions that go unnoticed, as well as the fight-or-flight responses when faced with death. Past procedures failed in enhancing the good without spurring on the bad, leading to results that were… disheartening, but the remedy to this issue is hoped to be found in the lot of you.” The itch had now spread to the insides of my ears, as if looking for a way in. A quick slap to the head alleviated it momentarily, only for it to come back stronger. “I’ll now explain what you should be feeling once the trial commences and how to use it to your advantage. This step is necessary to create a realistic mindset to mirror takers in the outside world, so this next information is of the utmost importance.”</p>
+
+        <p>He went on to explain the sensations that should accompany the drug. Enlarged strength interpreters (the mind-body connection responsible for understanding your own strength), increased anger triggers (the part of Omega receptors that regulate anger management), along with small changes to endurance and dexterity. My heart only started beating faster as he explained. Why haven’t they explained what the trial will consist of, and how will it test my anger levels? Others began to stir with similar questions of their own, only to be silenced by ShanTai who replaced Dr. Hale mid-sentence.</p>
+
+        <p>“I see no reason to delay further. Trial One will be one-on-one combat.” He didn’t pause but the angered murmurs began nonetheless. “You’ll be assigned a partner based on weight, a luxury you won’t receive in future trials, and will fight until the other is dead. Stay seated until ordered to the front.”</p>
+
+        <p>Death. I felt stupid for forgetting about its ever-looming presence, one that I’d never failed to be aware of since the first moment of my incarceration, but it never felt as real as when it left his lips.</p>
+
+        <p>Three people leapt from their spots immediately. Two shouting at the window as they stepped closer, the other running for the entrance we came through only to find a wall like any other, with no indication to show a door was ever there. I watched as the lady moved swift fingers across her remote, this time expecting what would happen next. Nobody flinched as all three dropped simultaneously. Instinctively I glanced at my bunk mate sitting only two spots down, who was looking at me in turn. A solemn shake of his head was all he could muster, while I looked on with a numb indifference.</p>
+
+        <p>I’d experienced many moments in my life that I’d consider surreal. My first night in the city, the death of my brother, the morning after my arrest. I felt like a passive observer, watching on as a dream unfolded. It even reminded me of a night I spent alone amongst a sea of sand. I was only 9, too young to be out alone, but what my mother didn’t know couldn’t hurt her. It was mid-Night, the season of perpetual darkness, and when the rest of the world turned off their lights for sleep, the stars were at their brightest. My pallet of sand warmed my body, creating the illusion that it wasn’t there at all. That night it was only my mind amongst the eternal void of space. The swirling layers of purple pulled at my conscience, egging me to fall into its embrace. The feeling was intoxicating, washing me with an ecstasy I’d never before felt, until the feeling was too much. My bearing on the world started to slip and my mind twisted in irregular ways to keep hold. There I was, to any outside observer just a young boy laying on the beach, but what went on inside was a moment of chaos that scarred me long after.</p>
+
+        <p>I felt my mind begging to be free once again, to run wild in fear and lose grasp of what held me to the ground, but my time in the cell prepared me for this, giving me experience in shutting my mind off from the void.
+        The bodies were dragged back to their circles, and order resumed.</p>
+
+        <p>“Once your personal trial is complete, you’ll return to your seated position until the entire sect is done. We’ll begin after any questions.” ShanTai spread his arms wide, allowing us to speak for the first time. Nobody did at first, until my bunkmate decidedly raised his hand. His hawk-like nose didn’t shy from facing ShanTai, and kept its place held high even after being nodded on to speak.
+        “How will the drugs be administered, erm, sir?” he said, his voice threading the line between casual and shaking.</p>
+
+        <p>“You were injected the moment you set foot in the room,” ShanTai responded.
+        At this everyone looked around, seeming to notice for the first time that they weren't the only ones engulfed in a fit of itches and sweat. In this realization my fear made yet another attempt to break free, my skin now crawling from head to toe with invisible pinchers. Everyone's discomfort was now impossible to miss. As ShanTai must have heard the whispered questions of how this was possible, he motioned Dr. Hale to step forward.</p>
+
+        <p>“In transit to this station, you’ve been administered with what we like to call a buzz pack, currently containing your dosage of Monomega IV, the compound for Trial one. It allows us to remotely trigger certain actions.” Dr. Hale switched with ShanTai once again.
+        “Any attempt at tampering with this device, successful or not, will be followed by termination.” Our semi-circle fell quiet. “The time for questions is over. Let’s begin.”</p>
+
+        <p>With the shrill of a siren, two sectmates jolted into an upright position as if puppeteered. “Step forward,” a monotone voice said, unlike the others we’ve heard so far. At this point the window which was once clear became tinted with the rest of them. The two puppets, both rather large men, meet a few feet apart in the center of the floor. Their eyes cut back and forth in desperation, but the gloss over their growing pupils show they’re too far gone, death is inevitable. Like the flip of a switch their demeanor changes, mirroring their movements off the other, searching for weakness. Then came the first blow.</p>
+
+        <p>The slightly larger man, with hair touching his shoulders, sprung into a tackle. Taking both of them to the floor, they flip and pound and scratch until finding themselves in a stand off once again. Both have blood dotting their body, but neither seems deterred in the slightest. In fact, I could feel their anger grow, threatening to explode in savage pieces of blood and gore. What have they done to them?</p>
+    </div>
+</div>
+<div id="modal2" class="modal">
+    <div class="modal-content">
+        <button class="close-btn" onclick="closeModal(2)">&times;</button>
+        <h3 style="text-align:center;">Ode to Drowning</h3>
+        
+        <p><em>I sink.</em><br>
+I sink under the tugging current of unshed tears and falling snow. The faint tick of icy flakes imprinting themselves on my window lulls me deeper. The weight of December working like an anchor. I can taste the silence, its smooth notes going down easier than any vice, easing my pain from within. For a second I feel the desperate tugs of a cry, like smelling the rain before it arrives, but the storm stays dormant, and soon those thoughts are forgotten, as all thoughts are. I drift down and down, embracing it.</p>
+        
+        <p><em>I sink.</em><br>
+I sink to the depth that holds a land more promising than my own. An oasis where left is right and up is down. Fear is joy and pain is temporary. Spears of grass sway with the wind like an ocean of life. I lay in the middle of it all, basking in the light of futures that will never exist. Sometimes the curtain drops, revealing the hell I've reached, glitching in and out with images of red, but my promise land is resilient. It is home. Then I slip, my silhouette cutting through the waves as if they were never there. A fool's mistake.</p>
+        
+        <p><em>I sink.</em><br>
+I sink to a place where even light refuses to explore. A pillar of shadows patrols this world like a warden, devouring those unfortunate enough to get this far. Lost memories strike at my skin, marking me with lines of blood like chalk on a cell wall. I've been here before, this prison of regrets. I move my feet to run but the floor gives way to quicksand, sucking me deeper with each attempt of escape. With a deep breath, I feel nothing. Time ceases to exist as the pillar pushes closer, what's left of my consciousness detecting it like a radar. It dances over the bottomless floor with the grace of Death itself. It only takes a moment.</p>
+        
+        <p><em>I drown.</em><br>
+When my eyes open, it's no longer snowing. I crank my window open to let the winter air cleanse my thoughts. The sun has yet to set. The deers are still out to play, prancing along in ignorance. My dad works the wood pile out back, leaving traces of smoke to wander their way into my room. I drag over my chair and reach for the blanket draped carelessly on my floor. This will do for now, until the fire dwindles to an ember, and the snow reclaims its dominion.<br>
+Then maybe, when the moon hits its peak, I'll yearn to sink again.</p>
+    </div>
+</div>
+
+<script>
+function openModal(idx) {
+    const modal = document.getElementById('modal' + idx);
+    const modalContent = modal.querySelector('.modal-content');
+    // show modal so measurements work
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+
+    // attempt to vertically align modal-content with the corresponding synopsis item
+    const synopsis = document.getElementById('syn' + idx);
+    if (synopsis) {
+        // position absolute and center horizontally, then compute top
+        modalContent.style.position = 'absolute';
+        modalContent.style.left = '50%';
+        modalContent.style.transform = 'translateX(-50%)';
+
+        // allow browser to layout and measure
+        const mcHeight = modalContent.offsetHeight || (window.innerHeight * 0.6);
+        const rect = synopsis.getBoundingClientRect();
+        const centerY = rect.top + rect.height / 2;
+        let top = Math.round(centerY - mcHeight / 2);
+        const minTop = 16;
+        const maxTop = Math.max(16, window.innerHeight - mcHeight - 16);
+        if (top < minTop) top = minTop;
+        if (top > maxTop) top = maxTop;
+        modalContent.style.top = top + 'px';
+    } else {
+        // default center
+        modalContent.style.position = '';
+        modalContent.style.left = '';
+        modalContent.style.top = '';
+        modalContent.style.transform = '';
+    }
+}
+
+function closeModal(idx) {
+    const modal = document.getElementById('modal' + idx);
+    if (!modal) return;
+    const modalContent = modal.querySelector('.modal-content');
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+    // reset inline positioning
+    if (modalContent) {
+        modalContent.style.position = '';
+        modalContent.style.left = '';
+        modalContent.style.top = '';
+        modalContent.style.transform = '';
+    }
+}
+
+// close modal when clicking outside content — use element id to identify which modal
+document.querySelectorAll('.modal').forEach(function(modal) {
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            const id = modal.id.replace('modal','');
+            closeModal(id);
+        }
+    });
+});
+</script>
+{% endblock %}
+

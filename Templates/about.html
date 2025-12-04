@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>About Me</h2>
+
+<style>
+    /* About page styling matching Games/Writing pages */
+    .about-section {
+        max-width: 900px;
+        margin: 2rem auto;
+        padding: 1.5rem;
+        background: rgba(169,230,244,0.04);
+        border-radius: 10px;
+        color: #e6fbff;
+        border: 1px solid rgba(169,230,244,0.08);
+        text-align: left;
+        line-height: 1.6;
+    }
+    .about-section h3 {
+        color: #a9e6f4;
+        margin-top: 0;
+        margin-bottom: 1rem;
+        border-bottom: 2px solid rgba(169,230,244,0.2);
+        padding-bottom: 0.5rem;
+    }
+    .about-section p {
+        color: #dff9ff;
+        margin-bottom: 1rem;
+    }
+    .about-section .contact-info {
+        margin-top: 1rem;
+        padding: 0.75rem;
+        background: rgba(169,230,244,0.02);
+        border-left: 3px solid #a9e6f4;
+        border-radius: 4px;
+    }
+    .about-section .contact-info p {
+        margin: 0.5rem 0;
+    }
+    .about-with-image {
+        display: flex;
+        gap: 2rem;
+        align-items: flex-start;
+    }
+    .about-text {
+        flex: 1 1 auto;
+    }
+    .about-image {
+        flex: 0 0 280px;
+        width: 280px;
+    }
+    .about-image img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        border: 2px solid rgba(169,230,244,0.3);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+</style>
+
+<div class="about-section">
+    <h3>About</h3>
+    <div class="about-with-image">
+        <div class="about-text">
+            <p>My name is Jake Pinkerton. I’m a senior at the University of Arkansas, anticipating graduation in May of 2026 with a BA in Computer Science and a Minor in English.  I’ve always had a passion for storytelling and world-building, and have enjoyed combining these interests with my technical skills to create my own collection of work. </p>
+            <p>In addition to my coursework, I’ve worked on a range of personal projects from short stories and books to design documents and games.   </p>
+            <p>My hope is to find a role within game development, specifically centering around Narrative Design. In this position, I’d be able to put both sides of my skillset into practice to create meaningful stories and interactive experiences.</p>
+        </div>
+        <div class="about-image">
+            <img src="{{ url_for('static', filename='images/headshot.jpg') }}" alt="Jake Pinkerton headshot">
+        </div>
+    </div>
+</div>
+
+<div class="about-section">
+    <h3>Inspirations</h3>
+    <p>One of my favorite things to discuss with other people interested in pursuing careers in creative fields is what inspired them to do so. I've found some of my strongest connections to come from shared interests and experiences with art. Although there are several stories that have stuck with me long after I came across them, a few stand out from the rest.</p>
+    <p>My recent favorite has got to be the <strong><em style="color:rgba(89, 209, 236, 0.98)">Red Rising Series by Pierce Brown</em></strong>. He manages to combine so many elements – sci-fi, war, politics, loss, etc. – into an action-packed thriller that never gets lost in the size of its own world. I hope to one day create a story that captures the same range and execution that this series succeeds in.</p>
+    <p>A video game that first changed how I saw the medium was <strong><em style="color:rgba(89, 209, 236, 0.98)">The Forest by Endnight Games</em></strong>. When I first found it, I didn't have much experience with that kind of survival genre, but once I got deeper into the game, uncovering the lore that drives the game/experience forward, my eyes were opened to the kind of stories that could excel as video games.</p>
+    <p>I remember <strong><em style="color:rgba(89, 209, 236, 0.98)">Dune by Frank Herbert</em></strong> to be the first epic space opera I read. The details and scope of the story amazed me, then I saw the movie and my mind was blown all over again. Masterpiece!</p>
+</div>
+
+<div class="about-section">
+    <h3>Contact Me</h3>
+    <p>Feel free to contact me anytime, I look forward to entering this community and would love to discuss any questions or comments you may have.</p>
+    <div class="contact-info">
+        <p><strong>Email:</strong> jpinkerton44@outlook.com</p>
+        <p><strong>Phone:</strong> 817-914-0961</p>
+        <p><strong>Github:</strong> <a href="https://github.com/jpink8" target="_blank" style="color: #a9e6f4; text-decoration: none;">https://github.com/jpink8</a></p>
+    </div>
+</div>
+
+{% endblock %}
+
+
